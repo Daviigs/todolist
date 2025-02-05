@@ -24,7 +24,7 @@ public class Task {
     private String title;
     private LocalDateTime dateStart;
     private LocalDateTime dateEnd;
-    private String priority;
+    private Priority priority;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
