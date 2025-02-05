@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -25,6 +26,8 @@ public class UserController {
         if(userValidation != null){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User already exists");
         }
+
+
 
         var userCreated = this.userRepository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body("Created");
