@@ -1,10 +1,8 @@
 package com.davi.dev.todolist.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.davi.dev.todolist.enums.Priority;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -24,6 +22,8 @@ public class Task {
     private String title;
     private LocalDateTime dateStart;
     private LocalDateTime dateEnd;
+
+    @Enumerated(EnumType.STRING)
     private Priority priority;
 
     @CreationTimestamp
