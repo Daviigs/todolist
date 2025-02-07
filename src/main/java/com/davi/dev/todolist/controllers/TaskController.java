@@ -2,6 +2,7 @@ package com.davi.dev.todolist.controllers;
 
 import com.davi.dev.todolist.model.Task;
 import com.davi.dev.todolist.repository.ITaskRepository;
+import com.davi.dev.todolist.utils.Utils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,9 +52,14 @@ public class TaskController {
     @PutMapping("/{id}")
     public Task update(@RequestBody Task task, HttpServletRequest request, @PathVariable UUID id) {
         var idUser = request.getAttribute("idUser");
+
+        var taskModel = this.iTaskRepository.findById(id).orElse(null);
+
+        Utils.copyNoNullProperties(task, taskModel);
+
         task.setIdUser((UUID) idUser);
         task.setId(id);
-        return this.iTaskRepository.save(task);
+        return this.iTaskRepository.save(taskModel);
 
 
     }
