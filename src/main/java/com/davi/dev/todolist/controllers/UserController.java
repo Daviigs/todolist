@@ -19,14 +19,13 @@ public class UserController {
     private IUserRepository userRepository;
 
     @PostMapping("/")
-    public ResponseEntity create(@RequestBody User user){
+    public ResponseEntity create(@RequestBody User user) {
 
         var userValidation = this.userRepository.findByUsername(user.getUsername());
 
-        if(userValidation != null){
+        if (userValidation != null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User already exists");
         }
-
 
 
         var userCreated = this.userRepository.save(user);
