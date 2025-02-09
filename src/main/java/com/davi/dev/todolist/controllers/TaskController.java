@@ -72,6 +72,6 @@ public class TaskController {
         task.setId(id);
 
         var taskUpdate = this.iTaskRepository.save(taskModel);
-        return ResponseEntity.ok().body(this.iTaskRepository.save(taskUpdate));
+        return ResponseEntity.ok().body(taskUpdate);
     }
 }
