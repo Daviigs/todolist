@@ -64,7 +64,6 @@ O Todo List é uma aplicação web para gerenciamento de tarefas, desenvolvida u
   "title": "Titulo",
   "dateStart": "2025-02-10T12:30:00",
   "dateEnd": "2025-02-10T15:30:00",
-  "userId": 1
 }
 ```
 
